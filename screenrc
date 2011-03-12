@@ -154,6 +154,7 @@ bind ^] paste [.]
 
 altscreen on
 hardstatus alwayslastline "%w"
+defscrollback 9999
 
 bind c screen 1
 bind ^c screen 1
