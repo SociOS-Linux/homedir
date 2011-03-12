@@ -39,3 +39,8 @@ fi
 
 HISTCONTROL=erasedups
 HISTSIZE=1000
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
