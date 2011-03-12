@@ -1,0 +1,2 @@
+OPTIONS=boulder:0, color, cmdassist, norest_on_space, !autopickup, fullscreen, hilite_pet, lit_corridor, pettype:none, pushweapon, showscore, silent, time, gender:male, !number_pad
+OPTIONS=disclose:+i +a +v +g +c

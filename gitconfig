@@ -1,0 +1,7 @@
+[user]
+	email = davie@synackrst.net
+	name = David Hunter
+[color]
+    diff = auto
+    status = auto
+    branch = auto
