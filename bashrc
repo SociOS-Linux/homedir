@@ -10,10 +10,10 @@ alias ls="ls --color=auto -l"
 alias grep="grep --color=auto"
 
 # COLORS
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-BLUE="\[\033[0;34m\]"
-WHITE="\[\033[0;37m\]"
+RED="\[\033[01;31m\]"
+GREEN="\[\033[01;32m\]"
+BLUE="\[\033[01;34m\]"
+WHITE="\[\033[01;37m\]"
 RESET="\[\033[00m\]"
 
 # GIT PROMPT (http://gist.github.com/120804)
@@ -32,7 +32,7 @@ function check_git_status {
 }
 
 if [[ ${EUID} == 0 ]] ; then
-        PS1="${RED}\h${BLUE} \w$(check_git_status) ${BLUE}\$${RESET} "
+        PS1="${RED}\h${BLUE} \w$(check_git_status) ${BLUE}\#${RESET} "
 else
         PS1="${GREEN}\h${BLUE} \w$(check_git_status) ${BLUE}\$${RESET} "
 fi
