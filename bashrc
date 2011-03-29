@@ -32,7 +32,7 @@ function check_git_status {
 }
 
 if [[ ${EUID} == 0 ]] ; then
-        PS1="${RED}\h${BLUE} \w$(check_git_status) ${BLUE}\#${RESET} "
+        PS1="${RED}\h${BLUE} \w$(check_git_status) ${BLUE}#${RESET} "
 else
         PS1="${GREEN}\h${BLUE} \w$(check_git_status) ${BLUE}\$${RESET} "
 fi
