@@ -1,13 +1,18 @@
 [[ $- != *i* ]] && return
 
-eval `dircolors`
+shopt -s checkwinsize
+
+eval $(dircolors)
 
 EDITOR="vim"
 export EDITOR
 
 #alias pacman="yaourt"
-alias ls="ls --color=auto -l"
+alias ls="ls --color=auto"
+alias ll="ls --color=auto -l"
 alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
 
 # COLORS
 RED="\[\033[01;31m\]"
@@ -25,7 +30,7 @@ function parse_git_status {
 }
 function check_git_changes {
   # tput setaf 1 = RED, tput setaf 2 = GREEN
-  [ `parse_git_status` -ne 1 ] && tput setaf 1 || tput setaf 2
+  [ $(parse_git_status) -ne 1 ] && tput setaf 1 || tput setaf 2
 }
 function check_git_status {
     echo "\[\$(check_git_changes)\]\$(parse_git_branch)"
@@ -39,8 +44,5 @@ fi
 
 HISTCONTROL=erasedups
 HISTSIZE=1000
-#
-# ~/.bash_profile
-#
 
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
