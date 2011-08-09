@@ -1,0 +1,5 @@
+source /home/davie/.screenrc
+screen -t irssi 1 irssi
+number 1
+select 2
+kill
