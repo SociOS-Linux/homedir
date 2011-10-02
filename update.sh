@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ln -sfT .homedir/bin ~/.bin
 ln -sf .homedir/bash_profile ~/.bash_profile
 ln -sf .homedir/bashrc ~/.bashrc
 ln -sf .homedir/gitconfig ~/.gitconfig
