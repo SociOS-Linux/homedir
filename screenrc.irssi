@@ -1,4 +1,4 @@
-source /home/davie/.screenrc
+source $HOME/.screenrc
 screen -t irssi 1 irssi
 number 1
 select 2
