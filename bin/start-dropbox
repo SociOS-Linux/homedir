@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dblockfile="/tmp/dropbox.$USER.lck"
+
+if [ ! -e "${dblockfile}" ]; then
+    touch "${dblockfile}"
+#    sleep 60
+    /usr/local/bin/dropbox start
+fi

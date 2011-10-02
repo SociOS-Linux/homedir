@@ -1,0 +1,8 @@
+#!/bin/bash
+irssilockfile="/tmp/irssi.$USER.lck"
+
+if [ ! -e "${irssilockfile}" ]; then
+    touch "${irssilockfile}"
+#    sleep 20
+    screen -d -m -c $HOME/.homedir/screenrc.irssi
+fi

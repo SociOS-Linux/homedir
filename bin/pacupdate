@@ -1,0 +1,4 @@
+#!/bin/bash
+pacman -Sy > /dev/null
+pacman -Quq
+find /etc/ -name "*.pac*"
