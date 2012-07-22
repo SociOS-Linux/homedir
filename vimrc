@@ -8,4 +8,3 @@ set history=1000
 set undolevels=1000
 set modeline
 map <F1> <nop>
-set t_Co=256
