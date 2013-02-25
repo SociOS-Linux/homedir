@@ -1,0 +1,10 @@
+#!/bin/bash
+
+_dir="$(readlink -f ${0%/*})"
+
+cd $_dir
+if [ -z "$(git status -s)" ]; then
+    git pull -q
+else
+    git status
+fi
