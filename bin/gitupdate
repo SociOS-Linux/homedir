@@ -3,10 +3,10 @@
 _dir="$(readlink -f ${0%/*})"
 
 cd $_dir
-_HEAD1="$(cat .git/refs/heads/master)"
+_HEAD1="$(cat ../.git/refs/heads/master)"
 if [ -z "$(git status -s)" ]; then
     git pull -q
-    _HEAD2="$(cat .git/refs/heads/master)"
+    _HEAD2="$(cat ../.git/refs/heads/master)"
     test "$_HEAD1" != "$_HEAD2" &&  echo "Updated homedir"
 else
     git status
