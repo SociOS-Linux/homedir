@@ -2,5 +2,5 @@ MAILTO="netadmin@synackrst.net"
 PATH="/opt/homedir/bin:/usr/bin"
 
 1 0 * * *   root    pacupdate
-1 0 * * *   root    gitupdate
+1 * * * *   root    gitupdate
 1 0 * * *   root    pwck -s; grpck -s
