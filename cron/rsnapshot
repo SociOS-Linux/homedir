@@ -1,7 +1,7 @@
 MAILTO="netadmin@synackrst.net"
 PATH="/usr/bin"
 
-1 */4 * * *   root  rsnapshot hourly
-50 23 * * *   root  rsnapshot daily
-40 23 * * 6   root  rsnapshot weekly
-30 23 1 * *   root  rsnapshot monthly
+1 */4 * * *     root    rsnapshot hourly
+50 23 * * *     root    rsnapshot daily
+40 23 * * 6     root    rsnapshot weekly
+30 23 1 * *     root    rsnapshot monthly
