@@ -5,7 +5,7 @@ PATH="/opt/homedir/bin:/usr/bin"
 */15 * * * *    root cat /etc/resolv.conf
 
 1 * * * *       root gitupdate
-1 * * * *       root killall -HUP crond
+5 * * * *       root killall -HUP crond
 
 1 0 * * *       root pacupdate
 1 0 * * *       root pwck -s; grpck -s
