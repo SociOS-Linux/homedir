@@ -7,7 +7,7 @@ _HEAD1="$(cat ../.git/refs/heads/master)"
 if [ -z "$(git status -s)" ]; then
     git pull -q
     _HEAD2="$(cat ../.git/refs/heads/master)"
-    test "$_HEAD1" != "$_HEAD2" &&  echo "Updated homedir"
+    test "$_HEAD1" != "$_HEAD2" &&  echo "Updated homedir" && killall -HUP crond
 else
     git status
 fi
