@@ -2,10 +2,10 @@ MAILTO="netadmin@synackrst.net"
 PATH="/opt/homedir/bin:/usr/bin"
 
 */15 * * * *    root dmesg -T -c
-*/15 * * * *    root cat /etc/resolv.conf
 
 1 * * * *       root gitupdate
 5 * * * *       root killall -HUP crond
+6 * * * *       root cat /etc/resolv.conf
 
 1 0 * * *       root pacupdate
 1 0 * * *       root pwck -s; grpck -s
