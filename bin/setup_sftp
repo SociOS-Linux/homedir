@@ -27,8 +27,8 @@ mkdir -p "$(dirname "$_useradd")"
 cat >> "$_useradd" << EOF
 #!/bin/bash
 
-_user="$1"
+_user="\$1"
 useradd -m -U -b "$_chroot" -G "$_group" -k /dev/null "\$_user"
-passwd "$_user"
+passwd "\$_user"
 EOF
 chmod u+x "$_useradd"
