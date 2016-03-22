@@ -1,0 +1,34 @@
+#!/bin/bash
+
+_useradd="/usr/local/sbin/useradd_sftp"
+
+test -e "$_useradd" && echo "This system is already configured for SFTP" && exit 1
+
+echo "Doing the needful"
+exit 0
+
+_sshdconfig="/etc/ssh/sshd_config"
+_chroot="/srv/sftp"
+_group="sftp"
+
+mkdir -p "$_chroot"
+groupadd -r "$_group"
+cat >> "$_sshdconfig" << EOF
+Match Group $_group
+    ChrootDirectory $_chroot
+    ForceCommand internal-sftp -d %u
+    X11Forwarding no
+    AllowTcpForwarding no
+    PermitTunnel no
+    PermitTTY no
+EOF
+
+mkdir -p "$(dirname "$_useradd")"
+cat >> "$_useradd" << EOF
+#!/bin/bash
+
+_user="$1"
+useradd -m -U -b "$_chroot" -G "$_group" -k /dev/null "$_user"
+passwd "$_user"
+EOF
+chmod u+x "$_useradd"
