@@ -4,16 +4,16 @@ _useradd="/usr/local/sbin/useradd_sftp"
 
 test -e "$_useradd" && echo "This system is already configured for SFTP" && exit 1
 
-echo "Doing the needful"
-exit 0
+test -z "$1" && echo "Please provide a path for the sftp root directory" && exit 1
 
 _sshdconfig="/etc/ssh/sshd_config"
-_chroot="/srv/sftp"
+_chroot="$1"
 _group="sftp"
 
 mkdir -p "$_chroot"
 groupadd -r "$_group"
 cat >> "$_sshdconfig" << EOF
+
 Match Group $_group
     ChrootDirectory $_chroot
     ForceCommand internal-sftp -d %u
