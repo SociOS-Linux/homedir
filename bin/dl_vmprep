@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wget "https://dl.dropboxusercontent.com/u/2254969/arch_install/vmprep.sh" -O vmprep.sh
