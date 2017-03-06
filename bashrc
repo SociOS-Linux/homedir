@@ -26,11 +26,11 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \(\1\)/';
 }
 function parse_git_status {
-  git status 2> /dev/null | sed -e '/working directory clean/!d' | wc -l;
+  git status --porcelain 2> /dev/null | wc -l;
 }
 function check_git_changes {
   # tput setaf 1 = RED, tput setaf 2 = GREEN
-  [ $(parse_git_status) -ne 1 ] && tput setaf 1 || tput setaf 2
+  [ $(parse_git_status) -ne 0 ] && tput setaf 1 || tput setaf 2
 }
 function check_git_status {
     echo "\[\$(check_git_changes)\]\$(parse_git_branch)"
