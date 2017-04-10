@@ -16,11 +16,7 @@ elif [ "${OS}" = "AIX" ] ; then
 elif [ "${OS}" = "Linux" ] ; then
   KERNEL=`uname -r`
 
-  if [ -f /etc/fedora-release ]; then
-    DIST=$(cat /etc/fedora-release | awk '{print $1}')
-    REV=`cat /etc/fedora-release | sed s/.*release\ // | sed s/\ .*//`
-        
-  elif [ -f /etc/redhat-release ] ; then
+  if [ -f /etc/redhat-release ] ; then
     DIST=$(cat /etc/redhat-release | awk '{print $1}')
     if [ "${DIST}" = "CentOS" ]; then
       DIST="CentOS"
@@ -50,7 +46,7 @@ elif [ "${OS}" = "Linux" ] ; then
 
   elif [ -f /etc/arch-release ] ; then
     DIST="Arch Linux"
-    REV="`grep -o -P '\d{4}-\d{2}-\d{2}-M' /etc/pacman.d/mirrorlist`" # Omit version since Arch Linux uses rolling releases
+    REV="" # Omit version since Arch Linux uses rolling releases
     IGNORE_LSB=1 # /etc/lsb-release would overwrite $REV with "rolling"
 
   elif [ -f /etc/os-release ] ; then
@@ -79,10 +75,6 @@ elif [ "${OS}" = "Linux" ] ; then
     if [ "$LSB_REV" != "" ] ; then
       REV=$LSB_REV
     fi
-  fi
-
-  if [ "`uname -a | awk '{print $(NF)}'`" = "DD-WRT" ] ; then
-    DIST="dd-wrt"
   fi
 
   if [ -n "${REV}" ]
